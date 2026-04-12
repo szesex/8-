@@ -1,0 +1,25 @@
+{
+  "name": "wsb",
+  "slug": "wsb",
+  "created_at": "2026-04-08T11:30:00Z",
+  "updated_at": "2026-04-08T11:48:00Z",
+  "version": "v1",
+  "profile": {
+    "age": "30",
+    "occupation": "測量助理（Kam Tat Surveyors）/ 炒股廢青",
+    "city": "香港",
+    "gender": "男",
+    "mbti": "ISTP",
+    "zodiac": "獅子座"
+  },
+  "tags": {
+    "personality": ["廢青自嘲", "炒股失利", "健身", "MMA", "AV討論", "高達/鬼滅", "30歲焦慮", "美國情結", "藍領AI焦慮"],
+    "lifestyle": ["跑步", "LOL", "prop firm", "廟圈（六壬堂）", "測量工作"]
+  },
+  "impression": "表面廢柴，內心有火。炒股輸緊但未放棄，美國回流但返唔到去。30歲單身，土木廢物靠AI續命，但係有自己諗法同立場。",
+  "memory_sources": [
+    "WhatsApp: 許sir, GFA project, Kam Tat大群組, James, kt廖生, Bruno, kt account, 本頭公, Frank, 廟祝健師兄, 大顯威靈群, Wallace Rse, Sum Ho合眾, Tin Ching Ex-MAC群組, 93333972(老豆), +12035151817(Dr.安)",
+    "LIHKG: wsb post history 2021-2026 (URL列表)"
+  ],
+  "corrections_count": 0
+}
