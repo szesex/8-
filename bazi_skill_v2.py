@@ -30,6 +30,13 @@ def generate_daily_alert(date, version="dual"):
     day = str(date.day)
     data = load_data()
     
+    bazi_header = """
+【Saba 8字】
+正四柱：乙亥 甲申 戊寅 甲子
+隱藏四柱：身宮乙酉 胎息癸亥 胎元乙亥 命宮乙酉
+日主戊土 • 最強五行水 • 庚運一代（1984-2044）
+"""
+    
     greeting = "大家好！隱姓埋名藏術數，又嚟同大家傾偈啦！"
     date_str = "【{}年{}月{}日】".format(date.year, date.month, date.day)
     
@@ -61,18 +68,60 @@ def generate_daily_alert(date, version="dual"):
                     deepseek_text = d
         
         separator = "═" * 45
-        alert = "{}\n\n【Grok 版】\n{}\n\n{}\n\n【DeepSeek 版】\n{}".format(
-            date_str, grok_text, separator, deepseek_text)
+        alert = "{}{}\n【Grok 版】\n{}\n\n{}\n\n【DeepSeek 版】\n{}".format(
+            date_str, bazi_header, grok_text, separator, deepseek_text)
     else:
         alert = "單版模式"
     
     closing = "\n記住：命硬靠心態，你一定得！\n隱姓埋名，藏術數，學盲派8字，易經算股市——我哋下次見！🔥"
     return "{}\n\n{}\n{}".format(greeting, alert, closing)
 
+def generate_daily_comparison(date):
+    comparison = """
+【OpenClaw AI 每日比較】{}年{}月{}日
+
+Grok 版風格：重「金水黏連 + 隱藏雙劍鋒金 + 技術變現」
+DeepSeek 版風格：重「刑合困局 + 心魔誘惑 + 老千局心理戰」
+
+今日建議：
+- 事業：兩版都話今日有打硬仗機會，建議主動出擊
+- 財運：小心心魔（子水）引誘，專注正財辛苦錢
+- 盲派斷：金水黏連繼續鎖死，火土反彈已被壓制
+
+【請手填 Rank Feedback 學習算法】
+1 = Grok 完勝
+2 = DeepSeek 完勝
+3 = 平手
+4 = Grok 微勝
+5 = DeepSeek 微勝
+
+記住：命硬靠心態，你一定得！
+隱姓埋名，藏術數，學盲派8字，易經算股市——我哋下次見！🔥
+""".format(date.year, date.month, date.day)
+    return comparison
+
 def run_alert():
     date, _ = get_hkt_date()
     print("=== OpenClaw Daily Dual Alert ===")
     print(generate_daily_alert(date, "dual"))
 
+def run_feedback():
+    date, _ = get_hkt_date()
+    print("=== OpenClaw Daily Feedback ===")
+    print(generate_daily_comparison(date))
+
+def main():
+    if len(sys.argv) > 1:
+        mode = sys.argv[1].lower()
+    else:
+        mode = "alert"
+    
+    if mode == "alert":
+        run_alert()
+    elif mode == "feedback":
+        run_feedback()
+    else:
+        print("用法: python3 bazi_skill_v2.py [alert|feedback]")
+
 if __name__ == "__main__":
-    run_alert()
+    main()
