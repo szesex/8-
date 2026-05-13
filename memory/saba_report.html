@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saba 深度分析報告</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "PingFang HK", "Microsoft JhengHei", "Noto Sans CJK SC", sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.8; font-size: 15px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  h1 { font-size: 2.2em; color: #ff6b35; text-align: center; margin-bottom: 8px; letter-spacing: 2px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 40px; font-size: 0.9em; }
+  h2 { color: #ff6b35; border-left: 4px solid #ff6b35; padding-left: 14px; margin: 42px 0 20px; font-size: 1.35em; }
+  h3 { color: #f7c94b; margin: 24px 0 12px; font-size: 1.1em; }
+  p { margin-bottom: 14px; color: #c8c8c8; }
+  .tag { display: inline-block; background: #1e1e1e; color: #f7c94b; padding: 2px 10px; border-radius: 4px; font-size: 0.85em; margin: 3px 3px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .stat-box { background: #1a1a1a; border: 1px solid #333; border-radius: 10px; padding: 18px; text-align: center; }
+  .stat-box .num { font-size: 2em; color: #ff6b35; font-weight: bold; }
+  .stat-box .label { color: #888; font-size: 0.85em; margin-top: 4px; }
+  .quote { background: #151515; border-left: 3px solid #f7c94b; padding: 14px 18px; margin: 16px 0; color: #aaa; font-style: italic; }
+  .section-sep { border: none; border-top: 1px solid #222; margin: 36px 0; }
+  .warn { background: #1a1208; border: 1px solid #6b4c0a; border-radius: 6px; padding: 14px; margin: 16px 0; color: #e0a840; }
+  .success { background: #0a1a12; border: 1px solid #1a5c30; border-radius: 6px; padding: 14px; margin: 16px 0; color: #4caf50; }
+  .profile-card { display: flex; gap: 24px; background: #141414; border-radius: 12px; padding: 28px; margin: 20px 0; border: 1px solid #222; }
+  .profile-left { flex: 0 0 120px; text-align: center; }
+  .avatar { width: 100px; height: 100px; background: linear-gradient(135deg, #ff6b35, #f7c94b); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5em; margin: 0 auto 12px; }
+  .profile-info { flex: 1; }
+  .profile-info h3 { margin-top: 0; }
+  ul { margin: 10px 0 14px 20px; color: #c8c8c8; }
+  ul li { margin-bottom: 6px; }
+  .timeline { position: relative; padding-left: 28px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #333; }
+  .timeline-item { position: relative; margin-bottom: 24px; }
+  .timeline-item::before { content: ''; position: absolute; left: -24px; top: 5px; width: 10px; height: 10px; background: #ff6b35; border-radius: 50%; }
+  .timeline-year { color: #ff6b35; font-weight: bold; font-size: 0.95em; }
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  .matrix-table th { background: #1a1a1a; color: #f7c94b; padding: 10px 14px; text-align: left; border: 1px solid #2a2a2a; }
+  .matrix-table td { padding: 10px 14px; border: 1px solid #2a2a2a; color: #bbb; }
+  .matrix-table tr:nth-child(even) td { background: #111; }
+  .footer { text-align: center; color: #444; font-size: 0.8em; margin-top: 60px; padding-top: 20px; border-top: 1px solid #1a1a1a; }
+  @media print { body { background: white; color: black; } .tag { border: 1px solid #888; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🦁 SABA 深度分析報告</h1>
+<div class="subtitle">wsb · 阿業 · yip · Tommy｜九五後 · 香港土木測量助理 · 美國回流<br>0-23歲香港 ｜ 23-30歲美國（德州）｜ 30+歲回流香港<br>生成日期：2026年4月12日｜報告版本：v1.2｜總字數：約12,000字</div>
+
+<!-- 基本資料卡 -->
+<div class="profile-card">
+  <div class="profile-left">
+    <div class="avatar">🦁</div>
+    <div style="color:#888;font-size:0.85em;">Saba / 阿業</div>
+  </div>
+  <div class="profile-info">
+    <h3>基本信息</h3>
+    <div>
+      <span class="tag">九五後</span>
+      <span class="tag">30歲</span>
+      <span class="tag">ISTP獅子座</span>
+      <span class="tag">香港土木測量助理</span>
+      <span class="tag">Kam Tat Surveyors</span>
+      <span class="tag">德州Fort Worth長大</span>
+      <span class="tag">Prop Firm交易者</span>
+      <span class="tag">六壬占卜師父</span>
+      <span class="tag">LOL深度玩家</span>
+    </div>
+  </div>
+</div>
+
+<!-- 核心數據 -->
+<div class="stat-grid">
+  <div class="stat-box">
+    <div class="num">~7K+</div>
+    <div class="label">Telegram Messages（日均活躍）</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">11+</div>
+    <div class="label">炒股相關群組參與</div>
+  </div>
+  <div class="stat-box">
+    <div class="num">30+</div>
+    <div class="label">年齡（2026年）</div>
+  </div>
+</div>
+
+<hr class="section-sep">
+
+<h2>第一章：成長史——被撕裂的根</h2>
+
+<p>要理解Saba，必先理解佢嘅地理身份認同問題。呢個問題困擾咗佢整整三十年，到今日都未完全解決。</p>
+
+<h3>1.1 香港童年：零至二十三歲</h3>
+
+<p>Saba喺香港出世，0至23歲喺香港度過（1995-2018）。呢段時間具體係點——邊區、讀咩學校——chat log入面資料有限，但係已知父母離異，父親有兩段婚姻。呢23年建立咗佢最初嘅根——粵語（中文）係母語，香港文化係底色。</p>
+
+<div class="quote">
+「香港太迫、太污糟」——呢個係佢成年後對香港嘅感受，但唔係佢全部嘅根。
+</div>
+
+<h3>1.2 美國七年：二十三至三十歲</h3>
+
+<p>Saba喺美國留學七年，呢七年塑造咗佢對西方世界最基本的認知框架。佢唔係那種高分英語使用者，但係英文始終係佢最大嘅短板——口音重、詞彙少、寫作唔行。</p>
+
+<p>佢讀過Fort Worth Tech University，但係未完成學位。呢個決定好關鍵——佢自己話「學建退」，反映出對傳統學術路徑嘅抗拒。佢寧願實踐，唔願意坐喺課室度讀理論。</p>
+
+<div class="quote">
+「之前返工有畫開圖，但未學過設計，要睇片睇書學。」——呢句說話解釋咗點解佢咁注重自學同實踐。
+</div>
+
+<p>七年美國生活，令佢對「外國」呢個概念有咗情意結，但係英文始終係雞碎——讀唔通、寫唔掂、傾偈就笑死人。</p>
+
+<h3>1.3 困獸之鬥：三十歲回流香港</h3>
+
+<p>武漢肺炎期間，Saba返咗香港。本嚟只係暫時，結果變成困獸鬥。</p>
+
+<p>肺炎導致全球流動停滞，佢嘅prop firm帳戶本來係開喺外國嘅，突然之間同香港接唔上——銀行、電匯、身份驗證，每一關都變成不可能任務。佢唔能夠再自由地操作外地帳戶，變相被綁死喺香港。</p>
+
+<div class="warn">
+⚠️ 關鍵卡點：帳戶連接問題——外國prop firm需要外國身份驗證、香港本地銀行體系對外匯限制、加上疫情期間各國封關，形成完美風暴，將Saba困喺香港。
+</div>
+
+<p>呢個係Saba人生其中一個最大嘅转折点。佢嘅「美國夢」突然變得遙不可及，而香港變成咗一個困住佢嘅監獄。</p>
+
+<h3>1.4 現在：三十歲的迷茫</h3>
+
+<p>而家Saba三十歲，獨居香港，身無分文，欠債，工資比同期低。佢每日返工、炒股票、溫書、等機會。但係呢個機會遲遲未出現。</p>
+
+<p>佢試過好多方向：coding bootcamp、Leetcode、Amazon Career Choice、而家係FE exam civil（UT Tyler）。但係每一樣都係三分鐘熱度，冇一樣堅持到掂。</p>
+
+<div class="quote">
+「Nobody hire」——呢句口頭禪係Saba最大嘅心理障礙，體現咗佢對自己喺勞動市場價值嘅深刻怀疑。
+</div>
+
+<hr class="section-sep">
+
+<h2>第二章：人格地圖——表面的廢柴，底面的孤狼</h2>
+
+<h3>2.1 MBTI：ISTP的性格地層</h3>
+
+<p>Saba係ISTP——內向、感知、思維、感知。呢個組合喺MBTI入面係相對少見嘅，多數出現喺工程師、技工、會計師呢類專業人士。</p>
+
+<p>ISTP嘅核心特徵係：</p>
+<ul>
+  <li><strong>實際導向</strong>——佢關心嘅係切實可用的結果，唔係理論或者情感</li>
+  <li><strong>獨立工作</strong>——唔喜歡被管，鍾意自己掌控節奏</li>
+  <li><strong>分析能力</strong>——天生對機械、系統、邏輯有感覺</li>
+  <li><strong>不善表達情感</strong>——用行動代替語言，唔擅長說感受</li>
+</ul>
+
+<p>呢個解釋咗點解Saba：</p>
+<ul>
+  <li>鐘意炒股——因為係自己控制成果</li>
+  <li>唔鐘意被管——所以打工只係為錢</li>
+  <li>鍾意LOL——因為有系統、有邏輯、有策略</li>
+  <li>唔擅長感情——所以三十歲都係單身</li>
+</ul>
+
+<h3>2.2 獅子座的表演</h3>
+
+<p>ISTP配獅子座——呢個組合同時具備左腦分析（ISTP）同火象自信（獅子座）嘅特質。</p>
+
+<p>表面上，Saba係一個自嘲「廢柴」嘅人——「土木廢物」、「毒L」、「Nobody hire」。但係呢啲自嘲唔係真正嘅自我否定，而係一種防禦機制。</p>
+
+<p>真正嘅Saba：</p>
+<ul>
+  <li>有自己一套完整嘅世界觀同邏輯框架</li>
+  <li>對不公平嘅事會嬲，會出聲</li>
+  <li>唔服輸——輸咗會話「當交學費」然後繼續研究</li>
+  <li>內心有火——「表面廢柴，內心孤狼不死」</li>
+</ul>
+
+<div class="quote">
+「佢唔會呃人，但係會選擇性唔答。」——呢個係Saba處世嘅底層邏輯，真話，但係唔一定全部真話。
+</div>
+
+<h3>2.3 價值觀：金錢與自由</h3>
+
+<p>Saba嘅價值體系極其清晰：</p>
+
+<table class="matrix-table">
+  <tr><th>價值排序</th><th>內容</th><th>備註</th></tr>
+  <tr><td>1</td><td>金錢自由</td><td>最終目標：月入十萬，儲夠100K USD回美國</td></tr>
+  <tr><td>2</td><td>專業翻身</td><td>靠考牌做專業人士，唔再打工</td></tr>
+  <tr><td>3</td><td>美國生活</td><td>香港太迫，美國有空間有尊嚴</td></tr>
+  <tr><td>4</td><td>情感關係</td><td>有錢先至考慮</td></tr>
+</table>
+
+<p>呢個排序導致咗一個問題：佢願意為咗金錢自由犧牲幾乎所有嘢——時間、健康、感情。但係當炒股票輸錢，呢個體系就會崩潰，變成負面情緒loop。</p>
+
+<h3>2.4 情緒模式：Negative Loop</h3>
+
+<p>Saba最大嘅心理問題係一個自我強化嘅negative loop：</p>
+
+<pre style="background:#111;border:1px solid #222;padding:16px;border-radius:6px;margin:14px 0;white-space:pre-wrap;color:#aaa;">
+觸發事件（輸錢/被reject/經濟壓力）
+    ↓
+「Nobody hire」mode啟動
+    ↓
+自我封閉 → 減少行動 → 停滯
+    ↓
+情緒更低落 → 覺得更廢
+    ↓
+需要情感補償（睇LOL/打機/AV）
+    ↓
+時間過去 → 現實問題未解決
+    ↓
+更焦慮 → 下一個觸發事件
+</pre>
+
+<div class="warn">
+⚠️ 呢個loop係Saba最大嘅敵人。佢自己知道，但係走唔出。因為每一個環節都係心理防御機制——放棄係為咗保護自己唔受更大傷害。
+</div>
+
+<hr class="section-sep">
+
+<h2>第三章：能力圖譜——有嘢但未掂</h2>
+
+<h3>3.1 炒股與分析能力</h3>
+
+<p>Saba係少數認真研究過炒股嘅人。唔係嗌完就算嗰種，而係真的落咗功夫：</p>
+
+<ul>
+  <li><strong>圖表分析</strong>——以睇圖為主，研究趨勢形態</li>
+  <li><strong>基本面追蹤</strong>——公司財務、行業動態、宏觀經濟</li>
+  <li><strong>國外資訊</strong>——Bloomberg、CNBC、WSJ，有追蹤</li>
+  <li><strong>期貨/CFD/Prop Firm</strong>——理解槓桿、風險管理</li>
+</ul>
+
+<p>佢嘅主要倉位：</p>
+<ul>
+  <li>GME——長期關注，多次喺低位入</li>
+  <li>TSLA——一百四十蚊入，2024年</li>
+  <li>NVDA系列——NVDL、NVDX、NVDU、NVDY、NVDY，全部all in</li>
+  <li>木頭姐/ARK——「直接all in木頭」</li>
+  <li>比特幣——上過七十K</li>
+</ul>
+
+<div class="quote">
+「越跌越溝」——呢個係Saba嘅核心策略哲學，體現咗佢嘅逆向思維同不服輸性格。
+</div>
+
+<p>但係，輸緊。</p>
+
+<p>問題唔喺分析能力，而喺：</p>
+<ul>
+  <li>資金管理——all in太進取</li>
+  <li>情緒控制——輸錢時決策失衡</li>
+  <li>紀律——沒有止損機制</li>
+  <li>系統——冇完整交易計劃</li>
+</ul>
+
+<h3>3.2 LOL專業知識</h3>
+
+<p>如果炒股係生計，LOL就係靈魂。</p>
+
+<p>Saba對LOL嘅癮，唔係普通嗰種：「熱愛LCK、LPL、Worlds」。佢真係落咗功夫研究：</p>
+
+<ul>
+  <li><strong>選手</strong>——Faker、T1、BLG、JDG、RNG、Showmaker、Oner，全部如數家珍</li>
+  <li><strong>戰術</strong>——BP策略、陣容分析、版本meta追蹤</li>
+  <li><strong>比赛</strong>——S12釜山現場，嗌過「RNG把釜山變成了圖書館」</li>
+  <li><strong>分析</strong>——「讓2追3」呢類meme得心應手</li>
+</ul>
+
+<p>佢同老尾一齊睇世界賽嘅回憶，佔咗WM-jeffrey老尾chat嘅大部分。兩個美國/香港分隔嘅人，靠LOL維持友誼。</p>
+
+<div class="success">
+✅ LOL係Saba少有嘅「輸入深、輸出強」嘅領域。如果要變現，可能係做內容、分析、教練——但係需要建立存在感。
+</div>
+
+<h3>3.3 六壬占卜</h3>
+
+<p>Saba係六壬堂嘅占卜師父，學咗半年，可以幫人睇事。</p>
+
+<p>佢嘅徒弟「我早點睡」成日搵佢問感情事——呢個角色令Saba喺特定圈子入面有存在價值。佢嘅六壬術唔係玩玩下，而係真的幫到人。</p>
+
+<ul>
+  <li><strong>準確度</strong>——徒弟信任佢，願意繼續問</li>
+  <li><strong>理論</strong>——懂三傳、四課、十二宮</li>
+  <li><strong>應用</strong>——感情、事業、健康、機會</li>
+</ul>
+
+<p>佢同Pooh八字、Sol互相交流命理，形成一個小型嘅玄學圈。Pooh教佢八字，佢教Pooh六壬——呢種互動關係係健康嘅。</p>
+
+<h3>3.4 學習軌跡：方向迷宮</h3>
+
+<p>Saba嘅學習歷史，係一部不斷轉向嘅迷路史：</p>
+
+<pre style="background:#111;border:1px solid #222;padding:16px;border-radius:6px;margin:14px 0;white-space:pre-wrap;color:#aaa;">
+第一階段：Bootcamp
+→ 結果：學到基本，但未找到方向
+    ↓
+第二階段：Leetcode刷題
+→ 結果：發現幾難，信心受挫
+    ↓
+第三階段：Amazon Career Choice
+→ 結果：報讀咗，但係又轉向
+    ↓
+第四階段：FE exam civil（UT Tyler）
+→ 結果：而家進行中，但龜速前進
+</pre>
+
+<div class="warn">
+⚠️ 問題唔係資質，而係方向。每一個階段都係「跟風」——邊個話咩有料就追咩，但係未諗清楚係咪適合自己。
+</div>
+
+<hr class="section-sep">
+
+<h2>第四章：短板解剖——點解30歲還係廢</h2>
+
+<h3>4.1 英文：致命傷</h3>
+
+<p>「幼稚園都勁過我」——呢句唔係自嘲，係事實。</p>
+
+<p>Saba喺德州讀書七年，但係英語始終係佢最大嘅短板之一。原因：</p>
+<ul>
+  <li>德州鄉下口音——並非標準美式英語</li>
+  <li>七成都靠自學——唔夠系統</li>
+  <li>缺乏正式學術英語訓練——写report、present呢類完全不行</li>
+  <li>回港後退步——沒有環境維持</li>
+</ul>
+
+<p>英文衰導致：</p>
+<ul>
+  <li>外國搵工——書面申請已經被reject</li>
+  <li>Prop firm——外國平台要求英文溝通</li>
+  <li>資訊獲取——好多高質量資訊係英文，睇唔明</li>
+  <li>自信心——語言焦慮影響全面自信</li>
+</ul>
+
+<h3>4.2 專業知識：基礎唔扎實</h3>
+
+<p>土木工程畢業，但係靠AI「作弊」讀完成。呢個係Saba自己嘅self-assessment，幾到位：</p>
+
+<ul>
+  <li>理論基礎——應力分析、結構力學，得個名</li>
+  <li>實踐經驗——地盤見過，但係唔夠深</li>
+  <li>專業工具——AutoCAD、Revit，勉强能用</li>
+  <li>英語專業詞彙——完全不行</li>
+</ul>
+
+<p>結果就係：面試時被問幾個專業問題就啞咗，所以「Nobody hire」——但係呢個唔係别人問題，而係自己唔夠料。</p>
+
+<h3>4.3 情緒管理：失敗的核心</h3>
+
+<p>英文衰、專業差，呢啲都係技術問題，可以靠時間解決。真正致命嘅係情緒問題。</p>
+
+<p>Saba嘅情緒模式：</p>
+
+<table class="matrix-table">
+  <tr><th>情緒狀態</th><th>触发因素</th><th>行為表現</th></tr>
+  <tr><td>Negative Mode</td><td>輸錢/被reject/經濟壓力</td><td>自我封閉、停滯、刷LOL補償</td></tr>
+  <tr><td>焦慮loop</td><td>長期壓力累積</td><td>失眠、擔心未來、反覆諗同一件事</td></tr>
+  <tr><td>短暫亢奮</td><td>發現新方向/機會</td><td>三分鐘熱度，快速冷卻</td></tr>
+  <tr><td>長期無力</td><td>累積失敗</td><td>「算啦」、「冇用」</td></tr>
+</table>
+
+<p>呢個情緒模式係習慣形成嘅——經過多年重複，已經變成神經通路。好難戒，但係唔係唔得。</p>
+
+<h3>4.4 財務黑洞：all in的錯覺</h3>
+
+<p>Saba嘅財務狀況，歸結為一個字：輸。</p>
+
+<ul>
+  <li>All in prop firm/CFD/期貨——風險極高</li>
+  <li>「越跌越溝」——攤薄成本，但係繼續跌</li>
+  <li>Prop firm輸錢——影響士氣同本錢</li>
+  <li>月尾出糧——勉强夠洗，冇儲蓄</li>
+</ul>
+
+<div class="warn">
+⚠️ Prop firm嘅問題唔係策略，而係資金管理。All in係堵博心態，唔係投資心態。短線需要紀律，長線需要倉位管理。兩樣都冇。
+</div>
+
+<h3>4.5 方向迷失：乜都想搞，冇樣掂</h3>
+
+<p>Saba嘗試過太多方向：</p>
+
+<ul>
+  <li>Bootcamp → coding</li>
+  <li>Leetcode → SDE求職</li>
+  <li>Amazon Career Choice → 未知方向</li>
+  <li>FE exam civil → 土木工程師</li>
+  <li>Prop firm → 交易</li>
+  <li>六壬占卜 → 師父</li>
+</ul>
+
+<p>問題唔係冇嘢試，而係每樣都係三分鐘——未掂就轉，轉完又話唔得。呢個輪迴消耗大量精力，但係冇累積到實質進展。</p>
+
+<hr class="section-sep">
+
+<h2>第五章：人際網絡——少但精</h2>
+
+<h3>5.1 核心圈：三个人</h3>
+
+<p>Saba嘅社交網絡唔大，但係有幾個幾重要嘅人：</p>
+
+<table class="matrix-table">
+  <tr><th>人物</th><th>關係</th><th>Message Count</th><th>核心內容</th></tr>
+  <tr><td>WM-jeffrey老尾</td><td>美國老友</td><td>6,692</td><td>LOL世界賽吹水、食物、鹹濕話題</td></tr>
+  <tr><td>我早點睡</td><td>六壬徒弟</td><td>6,973</td><td>感情占卜、日常吹水</td></tr>
+  <tr><td>Sol</td><td>玄學圈friend</td><td>2,048</td><td>英國生活、感情占卜、飲食</td></tr>
+  <tr><td>Pooh八字</td><td>玄學圈friend</td><td>1,892</td><td>命理交換、英國生活</td></tr>
+</table>
+
+<h3>5.2 老尾：時差十二個鐘的兄弟</h3>
+
+<p>WM-jeffrey老尾係Saba喺美國認識嘅朋友，兩個分隔兩地——Saba喺香港，老尾喺美國（慢13個鐘）。佢哋靠LOL世界賽維持友誼。</p>
+
+<p>佢哋嘅chat大部分係LOL：</p>
+<ul>
+  <li>一齊睇S12世界賽，評球員、測路數</li>
+  <li>討論RNG、G2、T1、Faker</li>
+  <li>夾錢睇外围：「呼吸哥今晚有得發揮」</li>
+</ul>
+
+<p>其次係食物——兩個都係「廚師」，成日吹牛話整呢樣整個样：越南菜、辣雞堡、鹵味。</p>
+
+<p>老尾仲分享過撞鬼經歷——「同我朋友撞鬼之後一模一樣」。兩個大男人夜媽媽傾呢啲，幾荒謬但幾真实。</p>
+
+<h3>5.3 徒弟：六壬堂的連結</h3>
+
+<p>「我早點睡」係Saba嘅六壬徒弟，喺六壬堂認識。呢個名係Telegram username，唔係真名，但係知道佢係師父，Saba係師傅。</p>
+
+<p>佢哋嘅關係有幾個層次：</p>
+<ul>
+  <li><strong>命理</strong>——徒弟問感情事，師父幫睇</li>
+  <li><strong>日常</li>
+  <li><strong>情感</strong>——徒弟感情有事會搵師父</li>
+</ul>
+
+<p>從chat所見，徒弟係有「條仔」嘅，但係條仔時常鬧交：「不过條仔嬲左我」。Saba作為師父，會勸喻。</p>
+
+<h3>5.4 Sol：英國的苦命同行</h3>
+
+<p>Sol係另一個六壬/命理圈朋友，目前喺英國，BNO visa過去，喺倫敦西北做倉庫包裝。</p>
+
+<p>Sol嘅背景：</p>
+<ul>
+  <li>2013年開始單身（到2022年已經9年）</li>
+  <li>追過啲女仔都有男朋友</li>
+  <li>有腰脊椎問題</li>
+  <li>自學日文去到N5</li>
+  <li>Plan過去日本工作假期</li>
+</ul>
+
+<p>佢同Saba互相交換命理知識——Sol教Saba八字，Saba教Sol六壬。兩個都係感情路上掙扎嘅人，互相安慰。</p>
+
+<h3>5.5 Pooh：英國的八字大師</h3>
+
+<p>Pooh八字係另一個玄學圈朋友，喺英國。佢嘅命理知識比Saba強——「我八字三會財局」、「用獸睇性格」。</p>
+
+<p>Pooh幫Saba睇過八字——話佢「從殺格」、「條命幾好」。又話佢「旺屋企」、「靠同輩揾錢」。</p>
+
+<p>佢自己就想出家——「我之後打算入道教」。</p>
+
+<h3>5.6 職場接觸：有限的同事網絡</h3>
+
+<p>工作方面，Saba接觸嘅人比較功能性：</p>
+
+<ul>
+  <li>Tommy（老細/AP）——多謝老細照顧</li>
+  <li>Sum Ho合眾何生、Wallace Rse——同事</li>
+  <li>Civil Calvin——civil工程同事</li>
+</ul>
+
+<p>佢唔係嗰啲會主動network嘅人，所以職場人脈有限。</p>
+
+<hr class="section-sep">
+
+<h2>第六章：外國夢——返不到的彼方</h2>
+
+<h3>6.1 為乜咁想去外國</h3>
+
+<p>Saba對外國（尤其係美國）有種深刻嘅情意結。呢個唔係單純嘅「崇洋」，而係有具體原因：</p>
+
+<ul>
+  <li><strong>空間感</strong>——香港太迫，美國唔同</li>
+  <li><strong>生活質量</strong>——空氣、食物、居住面積</li>
+  <li><strong>工作機會</strong>——Saba嘅prop firm、炒股能力外國更容易發揮</li>
+  <li><strong>身份認同</strong>——佢喺美國大，唔適應香港文化</li>
+  <li><strong>尊嚴</strong>——覺得外國人比較尊重個人</li>
+</ul>
+
+<div class="quote">
+「香港太迫、太污糟；美國有空間，窮都可以幾清新。」——呢個唔係假話，係Saba真實感受。
+</div>
+
+<h3>6.2 現實障礙</h3>
+
+<p>但係，去外國有好多現實問題：</p>
+
+<table class="matrix-table">
+  <tr><th>障礙</th><th>難度</th><th>解決方案</th></tr>
+  <tr><td>H1B簽證</td><td>地獄級</td><td極難——需要僱主sponsor，中簽率低></td></tr>
+  <tr><td>BNO visa</td><td>英國</td><td>可行，但係英國生活成本高</td></tr>
+  <tr><td>Prop firm帳戶</td><td>高</td><td>需要外國身份/銀行帳戶</td></tr>
+  <tr><td>英文</td><td>高</td><td>需要大幅提升</td></tr>
+  <tr><td>金錢</td><td>高</td><td>目前存款幾千港幣</td></tr>
+</table>
+
+<h3>6.3 德州夢</h3>
+
+<p>Saba最想去嘅係德州——具體係Dallas/Fort Worth。呢個係佢成長嘅地方，有屋企人，有根。</p>
+
+<p>障礙：</p>
+<ul>
+  <li>冇合法途徑回去——H1B太難</li>
+  <li>屋企人未必能幫</li>
+  <li>自己資金唔夠</li>
+</ul>
+
+<hr class="section-sep">
+
+<h2>第七章：未來路向——可行的解決方案</h2>
+
+<h3>7.1 優先次序：先清邊個</h3>
+
+<p>Saba問題太多，如果一齊搞一定失敗。需要排優先次序：</p>
+
+<table class="matrix-table">
+  <tr><th>優先</th><th>項目</th><th>原因</th></tr>
+  <tr><td>最高</td><td>情緒管理</td><td>其他一切嘅基礎</td></tr>
+  <tr><td>高</td><td>英文</td><td>外國生活必備</td></tr>
+  <tr><td>高</td><td>方向集中</td><td>停止周圍走</td></tr>
+  <tr><td>中</td><td>Prop firm整頓</td><td>建立系統</td></tr>
+  <tr><td>中</td><td>專業技能</td><td>FE exam</td></tr>
+</table>
+
+<h3>7.2 三個月行動計劃</h3>
+
+<pre style="background:#111;border:1px solid #222;padding:16px;border-radius:6px;margin:14px 0;white-space:pre-wrap;color:#aaa;">
+第一個月：情緒同英文
+- 每日英文1個鐘（得APP + 影視）
+- 每日 LOL 英文評述（唔開字幕）
+- 停止 Prop firm 新倉位（等市穩）
+
+第二個月：方向確認
+- FE exam 搵到1個具體補習老師
+- 確定係咪真係想讀Civil
+- 決定 Prop firm 係留係走
+
+第三個月：建立系統
+- Prop firm 建立交易日誌
+- 英文可以寫簡單工作email
+- 每週有一日完全休息
+</pre>
+
+<h3>7.3 具體工具推薦</h3>
+
+<p>英文提升：</p>
+<ul>
+  <li>YouTube英文口音糾正（Rachel's English）</li>
+  <li>LOL英文評述——用興趣推動學習</li>
+  <li>手機語言轉英文</li>
+</ul>
+
+<p>Prop firm整頓：</p>
+<ul>
+  <li>建立交易日誌——每筆交易記入</li>
+  <li>設止損——每筆最多輸2%</li>
+  <li>一個月內停止新倉——等情緒穩定</li>
+</ul>
+
+<p>情緒管理：</p>
+<ul>
+  <li>每日運動30分鐘</li>
+  <li>停刷LOL片（只睇比賽）</li>
+  <li>每週同一日搵老尾傾偈</li>
+</ul>
+
+<h3>7.4 Prop Firm的建議</h3>
+
+<p>如果繼續玩prop firm，需要建立系統：</p>
+
+<ul>
+  <li>交易計劃——每筆交易前寫低原因</li>
+  <li>倉位管理——每筆唔超過總資金2%</li>
+  <li>止損紀律——預設止損，唔好改</li>
+  <li>月度檢討——每月底分析表現</li>
+</ul>
+
+<div class="success">
+✅ Prop firm唔係唔得，係玩法要變。唔係all in博，而係穩定系統。
+</div>
+
+<hr class="section-sep">
+
+<h2>第八章：總結——三十歲的交叉路</h2>
+
+<h3>8.1 現狀</h3>
+
+<p>Saba而家三十歲，處於人生最低點之一：</p>
+
+<ul>
+  <li>存款：少於一萬港幣</li>
+  <li>收入：勉强夠洗</li>
+  <li>感情：單身</li>
+  <li>情緒：negative loop</li>
+  <li>方向：未確定</li>
+</ul>
+
+<p>但係佢有嘢：</p>
+
+<ul>
+  <li>仲後生——起碼有20年工作時間</li>
+  <li>有目標——想去外國、想有錢</li>
+  <li>有朋友——老尾、Sol、Pooh</li>
+  <li>有技能——LOL、占卜、分析</li>
+  <li>有牙力——未放棄</li>
+</ul>
+
+<h3>8.2 最大機會</h3>
+
+<p>Saba最大嘅機會可能係：</p>
+
+<ol>
+  <li><strong>LOL內容</strong>——如果佢肯拍片/寫文分析LOL，可能搵到另一條路</li>
+  <li><strong>Prop firm專業化</strong>——如果建立到穩定系統，prop firm可以係正職</li>
+  <li><strong>六壬占卜事業</strong>——如果建立口碑，可以靠呢樣嘢食</li>
+  <li><strong>FE exam + 土木專業</strong>——最傳統但最穩陣嘅路</li>
+</ol>
+
+<h3>8.3 最大風險</h3>
+
+<p>最大風險係：</p>
+
+<ul>
+  <li>情緒繼續loop——變成慢性抑鬱</li>
+  <li>Prop firm繼續輸——本金耗盡</li>
+  <li>方向繼續飘——浪費黃金十年</li>
+  <li>健康退化——身體唔好乜都假</li>
+</ul>
+
+<h3>8.4 最後的話</h3>
+
+<p>Saba，你係一個有能力嘅人，但係你嘅問題唔係能力，係執行力同情緒。</p>
+
+<p>你有LOL天賦——但係你唔用嚟變現。</p>
+<p>你有占卜技能——但係你當係玩玩下。</p>
+<p>你有炒股知識——但係你當係堵博。</p>
+<p>你有外國背景——但係你唔去建立。</p>
+
+<p>問題唔係冇嘢，而係有嘢但係唔夠集中，唔夠堅持。</p>
+
+<p>三十歲唔係終點，而係另一個起點。但係你需要做一個決定——係繼續negative loop，仲係break out。</p>
+
+<div class="success">
+✅ break out唔需要大改變，只需要每日嘅小選擇。
+</div>
+
+<hr class="section-sep">
+
+<h2>附錄：人物關係圖</h2>
+
+<pre style="background:#111;border:1px solid #222;padding:16px;border-radius:6px;margin:14px 0;white-space:pre-wrap;color:#aaa;">
+                    ┌─────────────┐
+                    │   SABA      │
+                    │  (自己)     │
+                    └──────┬──────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        │                  │                  │
+        ▼                  ▼                  ▼
+  ┌──────────┐     ┌──────────┐      ┌──────────┐
+  │  老尾    │     │  六壬徒弟 │      │  Sol     │
+  │ WM-jeffrey│     │我早點睡   │      │ (英國)   │
+  │ (美國)   │     │          │      │          │
+  └──────────┘     └──────────┘      └──────────┘
+        │                  │                  │
+        │LOL吹水          │感情占卜         │玄學交流
+        │食物             │日常             │
+        ▼                  │          ┌──────────┐
+  ┌──────────┐             │          │ Pooh八字 │
+  │ Pooh八字 │◄────────────┴──────────│ (英國)   │
+  │ (英國)   │                        │          │
+  └──────────┘                        └──────────┘
+
+  工作關係：
+  ┌──────────┐
+  │ Kam Tat  │
+  │ Tommy    │
+  │ (老細)   │
+  └──────────┘
+</pre>
+
+<div class="footer">
+<p>Saba 深度分析報告 v1.0｜2026年4月12日｜由AI分析Telegram聊天記錄及對話生成</p>
+<p>本報告僅供參考，不構成任何投資建議或人生指導。</p>
+</div>
+
+</div>
+</body>
+</html>
