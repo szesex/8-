@@ -24,24 +24,47 @@ def load_data():
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
+STEMS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
+BRANCHES = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
+
 def get_daily_bazi(date):
     """Calculate the daily 8-char (流日) for any given date."""
-    # Reference: 2024-01-01 is 乙丑日
-    stems = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
-    branches = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
-    
-    # Known reference points for accuracy
-    # 2026-05-14 = 戊子日
-    # Using solar term boundaries for accuracy
     ref_2026_05_14 = datetime.date(2026, 5, 14)
     ref_stem = 4  # 戊 (0-based)
     ref_branch = 0  # 子 (0-based)
-    
     days_diff = (date - ref_2026_05_14).days
     stem_idx = (ref_stem + days_diff) % 10
     branch_idx = (ref_branch + days_diff) % 12
-    
-    return stems[stem_idx] + branches[branch_idx]
+    return STEMS[stem_idx] + BRANCHES[branch_idx]
+
+def get_year_bazi(year):
+    """年柱: 天干地支 for the year."""
+    offset = year - 2024
+    stem_idx = offset % 10
+    branch_idx = (4 + offset) % 12  # 辰=4 index
+    return STEMS[stem_idx] + BRANCHES[branch_idx]
+
+def get_month_bazi(year, month):
+    """月柱: 天干地支 for the month."""
+    # Accurate lookup for 2026 months
+    # 2026=丙午年, stems/index: 甲=0,乙=1,丙=2,丁=3,戊=4,己=5,庚=6,辛=7,壬=8,癸=9
+    # branches/index: 子=0,丑=1,寅=2,卯=3,辰=4,巳=5,午=6,未=7,申=8,酉=9,戌=10,亥=11
+    month_calendar = {
+        (2026, 1): (4, 2),   # 戊寅
+        (2026, 2): (5, 3),   # 己卯
+        (2026, 3): (6, 4),   # 庚辰
+        (2026, 4): (7, 5),   # 辛巳
+        (2026, 5): (8, 6),   # 壬午
+        (2026, 6): (9, 7),   # 癸未
+    }
+    key = (year, month)
+    if key in month_calendar:
+        stem_idx, branch_idx = month_calendar[key]
+    else:
+        branch_idx = (2 + (month - 1)) % 12
+        year_stem = (year - 2024) % 10
+        stem_idx = (year_stem + (2 + (month - 1)) * 2) % 10
+    return STEMS[stem_idx] + BRANCHES[branch_idx]
 
 def generate_daily_alert(date, version="dual"):
     year = str(date.year)
@@ -50,6 +73,8 @@ def generate_daily_alert(date, version="dual"):
     data = load_data()
     
     daily_bazi = get_daily_bazi(date)
+    year_bazi = get_year_bazi(date.year)
+    month_bazi = get_month_bazi(date.year, date.month)
     
     saba_bazi = """
 【Saba 8字】
@@ -58,8 +83,12 @@ def generate_daily_alert(date, version="dual"):
 日主戊土 • 最強五行水 • 庚運一代（1984-2044）
 
 【當日8字】
-{}年{}月{}日 {}日
-""".format(date.year, date.month, date.day, daily_bazi)
+{}年 {}月{}日 {}日
+年柱：{} | 月柱：{} | 日柱：{} | 時柱：{}時
+""".format(
+        date.year, date.month, date.day, daily_bazi,
+        year_bazi, month_bazi, daily_bazi, daily_bazi[0]
+    )
     
     greeting = "大家好！隱姓埋名藏術數，又嚟同大家傾偈啦！"
     date_str = "【{}年{}月{}日】".format(date.year, date.month, date.day)
