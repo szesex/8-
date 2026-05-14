@@ -1,11 +1,11 @@
-# HEARTBEAT.md - Daily Operations
+# HEARTBEAT.md - Daily Operations (Auto 07:30 + 23:00)
 
 ## 任務觸發條件
 
 每當收到 heartbeat poll 時，根據 HKT 時間執行對應任務：
 
-- **07:00-08:00 HKT** → 07:30 盲派八字運程 Alert
-- **15:00-16:00 HKT (23:00-00:00 HKT)** → 23:00 Daily Feedback 比較
+- **HKT 07:00-08:00** → 07:30 盲派八字運程 Alert
+- **HKT 15:00-16:00 (23:00 HKT)** → 23:00 Daily Feedback 比較
 
 其他時間回覆 HEARTBEAT_OK。
 
@@ -13,59 +13,51 @@
 
 ## 任務一：07:30 盲派八字運程 Alert
 
-### 讀取狀態
-檢查 `/home/node/.openclaw/workspace/state/bazi_last_sent.json` 是否已發送過今日運程。
-
-### 條件判斷
-如果 HKT 時間係 **07:00 - 08:00** 且今日未發送，執行以下流程。
-
 ### 發送流程
 1. 執行：`python3 /home/node/.openclaw/workspace/bazi_skill_v2.py alert`
 2. 透過 Telegram 發送輸出俾 Saba (chat_id: 8475453959)
-3. 更新狀態檔為今日已發送
+3. 更新狀態：`/home/node/.openclaw/workspace/state/bazi_last_sent.json`
 
-### 格式示例
+### 格式
 ```
 大家好！隱姓埋名藏術數，又嚟同大家傾偈啦！
 
-【2026年5月13日】
+【2026年5月14日】
 【Saba 8字】
 正四柱：乙亥 甲申 戊寅 甲子
 隱藏四柱：身宮乙酉 胎息癸亥 胎元乙亥 命宮乙酉
 日主戊土 • 最強五行水 • 庚運一代（1984-2044）
 
+【當日8字】
+2026年 5月14日 戊子日
+四柱：丙午 壬午 戊子 戊時
+
 【Grok 版】
-事業：火土反彈，金水護身。唔好同人嗌交！
-財運：辛苦財為主，記住唔好亂投資！
-盲派斷：火土反彈，金水護身無大礙！
+事業：土水黏連，ICE pathway穩陣前進！
+財運：辛苦財為主，穩陣收成！
+盲派斷：金水黏連力度加強，死結繼續破！
 
 ═════════════════════════════════════════════
 
 【DeepSeek 版】
-事業：火土反彈，金水護身。唔好同人嗌交！
-財運：辛苦財為主，記住唔好亂投資！
-盲派斷：火土反彈，金水護身無大礙！
+事業：穩固成果。唔好衝動！
+財運：累積財富，記住唔好亂買！
+盲派斷：金水黏連過渡，養精蓄銳！
 
 記住：命硬靠心態，你一定得！
-隱姓埋名，藏術數，學盲派8字，易經算股市——我哋下次見！🔥
+隱姓埋名，藏術數，學盲派8字、易經算股市——我哋下次見！🔥
 ```
 
 ---
 
 ## 任務二：23:00 Daily Feedback 比較
 
-### 讀取狀態
-檢查 `/home/node/.openclaw/workspace/state/feedback_last_sent.json` 是否已發送過今日feedback。
-
-### 條件判斷
-如果 HKT 時間係 **23:00 - 00:00** 且今日未發送，執行以下流程。
-
 ### 發送流程
 1. 執行：`python3 /home/node/.openclaw/workspace/bazi_skill_v2.py feedback`
 2. 透過 Telegram 發送輸出俾 Saba (chat_id: 8475453959)
-3. 更新狀態檔為今日已發送
+3. 更新狀態：`/home/node/.openclaw/workspace/state/feedback_last_sent.json`
 
-### 格式示例
+### 格式
 ```
 【OpenClaw AI 每日比較】2026年5月13日
 
@@ -90,14 +82,26 @@ DeepSeek 版風格：重「刑合困局 + 心魔誘惑 + 老千局心理戰」
 
 ---
 
-## Fast #6 追蹤（可選）
+## 自動 Git Push Backup
 
-72小時目標：May 11 20:00 HKT → May 14 20:00 HKT
+當收到 Saba 嘅 Rank 回覆（1-5）時：
+1. 將 Rank 寫入 `/home/node/.openclaw/workspace/bazi_user_rank_feedback.json`
+2. 自動執行 Git commit + push：
+   ```bash
+   cd /home/node/.openclaw/workspace && git add -A && git commit -m "Auto backup $(date +%Y-%m-%d_%H:%M)" && git push
+   ```
 
 ---
 
 ## 狀態追蹤
 
-- 已發送 Alert：更新 `/home/node/.openclaw/workspace/state/bazi_last_sent.json`
-- 已發送 Feedback：更新 `/home/node/.openclaw/workspace/state/feedback_last_sent.json`
-- 未到時間或已發送：回覆 HEARTBEAT_OK
+- `/home/node/.openclaw/workspace/state/bazi_last_sent.json` - 最后發送 alert 時間
+- `/home/node/.openclaw/workspace/state/feedback_last_sent.json` - 最后發送 feedback 時間
+- `/home/node/.openclaw/workspace/bazi_user_rank_feedback.json` - 用戶 Rank 記錄
+
+---
+
+## Fast #6 追蹤（可選）
+
+72小時目標：May 11 20:00 HKT → May 14 20:00 HKT
+（斷食完成後無需特別提示，正常作息即可）
