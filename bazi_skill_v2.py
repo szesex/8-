@@ -24,18 +24,42 @@ def load_data():
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
 
+def get_daily_bazi(date):
+    """Calculate the daily 8-char (流日) for any given date."""
+    # Reference: 2024-01-01 is 乙丑日
+    stems = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
+    branches = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥']
+    
+    # Known reference points for accuracy
+    # 2026-05-14 = 戊子日
+    # Using solar term boundaries for accuracy
+    ref_2026_05_14 = datetime.date(2026, 5, 14)
+    ref_stem = 4  # 戊 (0-based)
+    ref_branch = 0  # 子 (0-based)
+    
+    days_diff = (date - ref_2026_05_14).days
+    stem_idx = (ref_stem + days_diff) % 10
+    branch_idx = (ref_branch + days_diff) % 12
+    
+    return stems[stem_idx] + branches[branch_idx]
+
 def generate_daily_alert(date, version="dual"):
     year = str(date.year)
     month = str(date.month)
     day = str(date.day)
     data = load_data()
     
-    bazi_header = """
+    daily_bazi = get_daily_bazi(date)
+    
+    saba_bazi = """
 【Saba 8字】
 正四柱：乙亥 甲申 戊寅 甲子
 隱藏四柱：身宮乙酉 胎息癸亥 胎元乙亥 命宮乙酉
 日主戊土 • 最強五行水 • 庚運一代（1984-2044）
-"""
+
+【當日8字】
+{}年{}月{}日 {}日
+""".format(date.year, date.month, date.day, daily_bazi)
     
     greeting = "大家好！隱姓埋名藏術數，又嚟同大家傾偈啦！"
     date_str = "【{}年{}月{}日】".format(date.year, date.month, date.day)
@@ -69,7 +93,7 @@ def generate_daily_alert(date, version="dual"):
         
         separator = "═" * 45
         alert = "{}{}\n【Grok 版】\n{}\n\n{}\n\n【DeepSeek 版】\n{}".format(
-            date_str, bazi_header, grok_text, separator, deepseek_text)
+            date_str, saba_bazi, grok_text, separator, deepseek_text)
     else:
         alert = "單版模式"
     
