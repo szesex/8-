@@ -84,10 +84,10 @@ def generate_daily_alert(date, version="dual"):
 
 【當日8字】
 {}年 {}月{}日 {}日
-年柱：{} | 月柱：{} | 日柱：{} | 時柱：{}時
+四柱：{} {} {} {}
 """.format(
         date.year, date.month, date.day, daily_bazi,
-        year_bazi, month_bazi, daily_bazi, daily_bazi[0]
+        year_bazi, month_bazi, daily_bazi, daily_bazi[0] + '時'
     )
     
     greeting = "大家好！隱姓埋名藏術數，又嚟同大家傾偈啦！"
