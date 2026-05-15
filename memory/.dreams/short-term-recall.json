@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-15T04:23:37.534Z",
+  "entries": {
+    "memory:memory/2026-04-07.md:1:26": {
+      "key": "memory:memory/2026-04-07.md:1:26",
+      "path": "memory/2026-04-07.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "# 2026-04-07 Daily Notes ## Memory Flush ### on9 Skill Context (appended from earlier session) - User: Tommy (yip/Saba), 30yo, HK civil engineering grad, ISTP, Leo - Works at Kam Tat Surveyors (錦達測量行有限公司) - MMA background, self-describes as \"表面自嘲廢柴，內心孤狼不死\" - Language: Cantonese primary, English/Mandarin mixed in technical contexts - WhatsApp sources processed: 3 chat exports + 4 vcards (Ming Cheung, 長康大廈管理處, 張生豐林閣物管, 本頭公) ### Contacts - **+1 (203) 515-1817** - ICE exam mentor，美國/休士頓傾偈，check緊 part A/B 進度 - **Frank** - 美國幫你搞車事（title問題），幾個月前幫過，聖誕節有send嘢 - **廟祝_健師兄** - 廟會師兄，氣功/傳統武術圈子，佢叫Tommy做「阿業」 - **本頭公** - 師傅/師父輩，農曆年問候，近況傾偈，試過約見面但未夾到 ### Skills - on9 skill created at `/home/node/.openclaw/",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.3137729700427761,
+      "maxScore": 0.3137729700427761,
+      "firstRecalledAt": "2026-05-15T04:23:37.534Z",
+      "lastRecalledAt": "2026-05-15T04:23:37.534Z",
+      "queryHashes": [
+        "b4d62b702cc9"
+      ],
+      "recallDays": [
+        "2026-05-15"
+      ],
+      "conceptTags": [
+        "yip/saba",
+        "self-describes",
+        "english/mandarin",
+        "515-1817",
+        "美國/休士頓傾偈",
+        "a/b",
+        "廟祝-健師兄",
+        "氣功/傳統武術圈子"
+      ]
+    }
+  }
+}
