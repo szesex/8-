@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-15T04:23:37.534Z",
+  "updatedAt": "2026-05-16T13:13:55.086Z",
   "entries": {
     "memory:memory/2026-04-07.md:1:26": {
       "key": "memory:memory/2026-04-07.md:1:26",
@@ -9,17 +9,19 @@
       "endLine": 26,
       "source": "memory",
       "snippet": "# 2026-04-07 Daily Notes ## Memory Flush ### on9 Skill Context (appended from earlier session) - User: Tommy (yip/Saba), 30yo, HK civil engineering grad, ISTP, Leo - Works at Kam Tat Surveyors (錦達測量行有限公司) - MMA background, self-describes as \"表面自嘲廢柴，內心孤狼不死\" - Language: Cantonese primary, English/Mandarin mixed in technical contexts - WhatsApp sources processed: 3 chat exports + 4 vcards (Ming Cheung, 長康大廈管理處, 張生豐林閣物管, 本頭公) ### Contacts - **+1 (203) 515-1817** - ICE exam mentor，美國/休士頓傾偈，check緊 part A/B 進度 - **Frank** - 美國幫你搞車事（title問題），幾個月前幫過，聖誕節有send嘢 - **廟祝_健師兄** - 廟會師兄，氣功/傳統武術圈子，佢叫Tommy做「阿業」 - **本頭公** - 師傅/師父輩，農曆年問候，近況傾偈，試過約見面但未夾到 ### Skills - on9 skill created at `/home/node/.openclaw/",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
-      "totalScore": 0.3137729700427761,
-      "maxScore": 0.3137729700427761,
+      "totalScore": 1.202159346785686,
+      "maxScore": 0.8883863767429098,
       "firstRecalledAt": "2026-05-15T04:23:37.534Z",
-      "lastRecalledAt": "2026-05-15T04:23:37.534Z",
+      "lastRecalledAt": "2026-05-16T13:13:55.086Z",
       "queryHashes": [
-        "b4d62b702cc9"
+        "b4d62b702cc9",
+        "1e395885ac52"
       ],
       "recallDays": [
-        "2026-05-15"
+        "2026-05-15",
+        "2026-05-16"
       ],
       "conceptTags": [
         "yip/saba",
@@ -30,6 +32,96 @@
         "a/b",
         "廟祝-健師兄",
         "氣功/傳統武術圈子"
+      ]
+    },
+    "memory:memory/2026-04-08.md:1:38": {
+      "key": "memory:memory/2026-04-08.md:1:38",
+      "path": "memory/2026-04-08.md",
+      "startLine": 1,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "# Memory - 2026-04-08 ## Session Info - User: Saba (Telegram ID: 8475453959) ## Received Files - User sent 10 CSV files (聊天室_33, 聊天室_330-338) containing YouTube stream chat logs - Channel: UCr0B_IpNHyH3nq88fGNEcMw (likely a Cantonese VTuber/streamer 台主) - Content: Cantonese chat messages from 2022-09-24 to 2025-01-21 - Messages include: anime references (JOJO, 咒術, Lol, VTuber), financial trading talk (TQQQ, TSLA), music song recommendations, and general chat - Notable: Heavy use of 💚, 🧐, 🤣, 🙏 emoji reactions ## Notes - No action needed on these files unless asked - User seems to be an anime/VTuber fan who watches Hong Kong stream content # Memory - 2026-04-08 ## Session Info - User:",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8781195236760735,
+      "maxScore": 0.8781195236760735,
+      "firstRecalledAt": "2026-05-16T13:13:55.086Z",
+      "lastRecalledAt": "2026-05-16T13:13:55.086Z",
+      "queryHashes": [
+        "1e395885ac52"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "聊天室-33",
+        "聊天室-330-338",
+        "ucr0b-ipnhyh3nq88fgnecmw",
+        "vtuber/streamer",
+        "anime/vtuber",
+        "info",
+        "user",
+        "saba"
+      ]
+    },
+    "memory:memory/2026-04-08.md:29:59": {
+      "key": "memory:memory/2026-04-08.md:29:59",
+      "path": "memory/2026-04-08.md",
+      "startLine": 29,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "- No action needed on these files unless asked - User seems to be an anime/VTuber fan who watches Hong Kong stream content --- ## Update: 2026-04-08 11:21 UTC ### Saba (wsb_refugee) - Identity Distillation Session Started Saba triggered `/create-yourself` to distill his **wsb_refugee digital self** from multiple sources: 1. LIHKG PDFs (2021-2026) — wsb_refugee #391157 2. Telegram — result.json / messages.html 3. WhatsApp — all .txt chat records 4. QQ — .txt / .html 5. Instagram — messages.json / messages.html 6. YouTube comments — Google Takeout comments.csv / comments.json **Files Received So Far (all WhatsApp work chats):** 1. **與_852_9143_6130的_WhatsApp_對話** — Work chat with 許sir, m",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8773335661836299,
+      "maxScore": 0.8773335661836299,
+      "firstRecalledAt": "2026-05-16T13:13:55.086Z",
+      "lastRecalledAt": "2026-05-16T13:13:55.086Z",
+      "queryHashes": [
+        "1e395885ac52"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "anime/vtuber",
+        "wsb-refugee",
+        "create-yourself",
+        "2021-2026",
+        "result.json",
+        "messages.html",
+        "messages.json",
+        "comments.csv"
+      ]
+    },
+    "memory:memory/2026-04-08.md:54:81": {
+      "key": "memory:memory/2026-04-08.md:54:81",
+      "path": "memory/2026-04-08.md",
+      "startLine": 54,
+      "endLine": 81,
+      "source": "memory",
+      "snippet": "**All 5 files are WORK-related only.** No LIHKG, personal, or emotional content received yet. **Saba's Work Profile (from existing saba skill):** - 30 years old, Civil Engineering graduate, Measurement Assistant at Kam Tat Surveyors - Boss: Tommy (廖生) - Works on: GFA submissions, ICU/BD submissions, protective barriers, slope engineering - Colleagues: James (852 6627 9455), Kan Kt, Wallace, Hilary (英哥/account), Matthew - Wants to go back to USA, interested in prop firm/trading, scared of unemployment **Missing Files for wsb_refugee distillation:** - ❌ LIHKG PDFs (2021-2026) - ❌ Telegram (result.json / messages.html) - ❌ QQ (.txt / .html) - ❌ Instagram (messages.json / messages.html) - ❌ Yo",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8686015786360123,
+      "maxScore": 0.8686015786360123,
+      "firstRecalledAt": "2026-05-16T13:13:55.086Z",
+      "lastRecalledAt": "2026-05-16T13:13:55.086Z",
+      "queryHashes": [
+        "1e395885ac52"
+      ],
+      "recallDays": [
+        "2026-05-16"
+      ],
+      "conceptTags": [
+        "work-related",
+        "icu/bd",
+        "英哥/account",
+        "firm/trading",
+        "wsb-refugee",
+        "2021-2026",
+        "result.json",
+        "messages.html"
       ]
     }
   }
