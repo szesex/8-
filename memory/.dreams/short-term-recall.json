@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-16T13:13:55.086Z",
+  "updatedAt": "2026-05-22T09:24:01.008Z",
   "entries": {
     "memory:memory/2026-04-07.md:1:26": {
       "key": "memory:memory/2026-04-07.md:1:26",
@@ -122,6 +122,128 @@
         "2021-2026",
         "result.json",
         "messages.html"
+      ]
+    },
+    "memory:memory/2026-04-12.md:72:106": {
+      "key": "memory:memory/2026-04-12.md:72:106",
+      "path": "memory/2026-04-12.md",
+      "startLine": 72,
+      "endLine": 106,
+      "source": "memory",
+      "snippet": "**興趣新版圖：** - 圍棋：卡喺12K，學咗10年 - 三國殺：只玩國戰mode，10周年活動 - Coding學習：Bootcamp → CompTIA/FE exam → Leetcode → Amazon Career Choice - 斗數/命理：大量玄學群組（斗數研、論命館、占卜group、玄氣能量、HKPN風水術數） - 玄學學習路：斗數及算命討論9up群（326 messages）、論命館（110 messages） **背景更新：** - Texas/Dallas背景確認，學生身份，2022年已喺美國南部 - Overnight AMZN warehouse返工時偷偷讀書 - GitHub：szesex/Binary-Search、szesex/Primary-algorithm- - 「Nobody hire」→「I think I need a mentor」→「start up leetcode」學習軌跡 **Telegram使用模式：** - 365個chats - 高活動量群組： - 垃圾E苦主關注組：7,532 messages - 潛力美股小村莊：1,483 messages - 我早點睡 明早要耕田（私人）：6,973 messages - WM-jeffrey老尾（私人）：6,692 messages - FE exam civil source for UT Tyler：814 messages - System engineer learn source：382 messages - Buckle Up為",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8920212692964558,
+      "maxScore": 0.8920212692964558,
+      "firstRecalledAt": "2026-05-22T09:23:39.307Z",
+      "lastRecalledAt": "2026-05-22T09:23:39.307Z",
+      "queryHashes": [
+        "5f0632edcce3"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "comptia/fe",
+        "斗數/命理",
+        "texas/dallas背景確認",
+        "szesex/binary-search",
+        "szesex/primary-algorithm",
+        "wm-jeffrey老尾",
+        "興趣",
+        "新版"
+      ]
+    },
+    "memory:memory/2026-04-12.md:97:109": {
+      "key": "memory:memory/2026-04-12.md:97:109",
+      "path": "memory/2026-04-12.md",
+      "startLine": 97,
+      "endLine": 109,
+      "source": "memory",
+      "snippet": "- 多汁家愛研討及即市吹水谷：73 messages - 主要私人對話：女友（耕田/Sol/uika0306/?）同老尾（WM-jeffrey） **Prop Firm/Coding進度：** - Apex Trader Funding為主 - Leetcode重度使用 - Amazon Career Choice報名 - FE exam civil engineering準備 ### 待完成 - 等待Saba確認是否直接更新saba skill（今日不再問）",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8817016334829899,
+      "maxScore": 0.8817016334829899,
+      "firstRecalledAt": "2026-05-22T09:23:39.307Z",
+      "lastRecalledAt": "2026-05-22T09:23:39.307Z",
+      "queryHashes": [
+        "5f0632edcce3"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "耕田/sol/uika0306",
+        "wm-jeffrey",
+        "firm/coding進度",
+        "多汁",
+        "研討",
+        "水谷",
+        "messages",
+        "主要"
+      ]
+    },
+    "memory:memory/2026-04-12.md:28:76": {
+      "key": "memory:memory/2026-04-12.md:28:76",
+      "path": "memory/2026-04-12.md",
+      "startLine": 28,
+      "endLine": 76,
+      "source": "memory",
+      "snippet": "- Prop firm trading (黄金 signals sharing) - FE exam studying (engineering calculator bot) ### Bot Tokens (from BotFather chats) - tgkangv1_bot (2022) - FEexamtest_bot (2022) - FECivilExam_bot (2024) ### Strategy - Silent batch processing - don't show all content in chat - All TG → skill-data/tg-all/consolidated.txt - Update skill when all files received ## Session 2026-04-12 17:26 (Post-Compaction) ### New Session Started - Saba reset session, fresh start - Re-read saba SKILL.md (merged saba+wsb v3) - Greeted in Saba's voice: \"Yo Saba！又上綫啦，今日點？🚀\" ### TG Chat History Processing - Ongoing - Saba asked to \"慢慢做 唔好爆\" (take it slow, don't overflow) - Consolidated: ~1585 lines now - Waiting f",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.7306081288471447,
+      "maxScore": 0.8653040644235723,
+      "firstRecalledAt": "2026-05-22T09:23:44.423Z",
+      "lastRecalledAt": "2026-05-22T09:24:01.008Z",
+      "queryHashes": [
+        "ef81df5fd562",
+        "eb0ca7c6dcf9"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "tgkangv1-bot",
+        "feexamtest-bot",
+        "fecivilexam-bot",
+        "post-compaction",
+        "re-read",
+        "skill.md",
+        "prop",
+        "firm"
+      ]
+    },
+    "memory:memory/2026-05-09.md:1:30": {
+      "key": "memory:memory/2026-05-09.md:1:30",
+      "path": "memory/2026-05-09.md",
+      "startLine": 1,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "# 2026-05-09 Daily Log ## Fasting Attempt #5 (96-hour) - FAILED - SABA SILENT **Start:** May 5, 2026 ~03:26 UTC (11:26 HK) **Broken:** May 5, 2026 ~15:38 UTC (23:38 HK) - approximately 12 hours **Goal:** 96 hours (4 days) Saba announced \"而家開始斷食4日\" at 03:26 UTC on May 5. He broke approximately 12 hours later at 15:38 UTC with just \"破了\" - no explanation. ## 2026-05-10 Update (01:36 UTC) Saba sent a single \"喂\" at 01:36 UTC on May 10. This is his first message since breaking the fast on May 5 at 15:38 UTC - approximately 82+ hours of silence. He has not responded further since the \"喂\". I replied welcoming him back and asking about his health. **Status:** Waiting for Saba to respond. **Pa",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.7119508092172817,
+      "maxScore": 0.8559754046086409,
+      "firstRecalledAt": "2026-05-22T09:23:44.423Z",
+      "lastRecalledAt": "2026-05-22T09:24:01.008Z",
+      "queryHashes": [
+        "ef81df5fd562",
+        "eb0ca7c6dcf9"
+      ],
+      "recallDays": [
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "96-hour",
+        "log",
+        "fasting",
+        "attempt",
+        "hour",
+        "failed",
+        "saba",
+        "silent"
       ]
     }
   }
