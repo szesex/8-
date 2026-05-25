@@ -130,28 +130,52 @@ def generate_daily_alert(date, version="dual"):
     return "{}\n\n{}\n{}".format(greeting, alert, closing)
 
 def generate_daily_comparison(date):
-    comparison = """
-【OpenClaw AI 每日比較】{}年{}月{}日
-
-Grok 版風格：重「金水黏連 + 隱藏雙劍鋒金 + 技術變現」
-DeepSeek 版風格：重「刑合困局 + 心魔誘惑 + 老千局心理戰」
-
-今日建議：
-- 事業：兩版都話今日有打硬仗機會，建議主動出擊
-- 財運：小心心魔（子水）引誘，專注正財辛苦錢
-- 盲派斷：金水黏連繼續鎖死，火土反彈已被壓制
-
-【請手填 Rank Feedback 學習算法】
-1 = Grok 完勝
-2 = DeepSeek 完勝
-3 = 平手
-4 = Grok 微勝
-5 = DeepSeek 微勝
-
-記住：命硬靠心態，你一定得！
-隱姓埋名，藏術數，學盲派8字，易經算股市——我哋下次見！🔥
-""".format(date.year, date.month, date.day)
-    return comparison
+    year = str(date.year)
+    month = f"{date.month:02d}"
+    day = f"{date.day:02d}"
+    data = load_data()
+    
+    grok_content = None
+    deepseek_content = None
+    
+    if year in data and month in data[year] and day in data[year][month]:
+        day_data = data[year][month][day]
+        if isinstance(day_data, dict):
+            grok_content = day_data.get('grok')
+            deepseek_content = day_data.get('deepseek')
+    
+    comparison_lines = [
+        f"【OpenClaw AI 每日比較】{date.year}年{date.month}月{date.day}日",
+        "",
+    ]
+    
+    if grok_content:
+        comparison_lines.append("【Grok 版】")
+        comparison_lines.append(grok_content[:300] if len(grok_content) > 300 else grok_content)
+        comparison_lines.append("")
+    
+    if deepseek_content:
+        comparison_lines.append("【DeepSeek 版】")
+        comparison_lines.append(deepseek_content[:300] if len(deepseek_content) > 300 else deepseek_content)
+        comparison_lines.append("")
+    
+    if not grok_content and not deepseek_content:
+        comparison_lines.append("今日數據載入中...")
+        comparison_lines.append("")
+    
+    comparison_lines.extend([
+        "【請手填 Rank Feedback 學習算法】",
+        "1 = Grok 完勝",
+        "2 = DeepSeek 完勝",
+        "3 = 平手",
+        "4 = Grok 微勝",
+        "5 = DeepSeek 微勝",
+        "",
+        "記住：命硬靠心態，你一定得！",
+        "隱姓埋名，藏術數，學盲派8字、易經算股市——我哋下次見！🔥"
+    ])
+    
+    return "\n".join(comparison_lines)
 
 def run_alert():
     date, _ = get_hkt_date()
