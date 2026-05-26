@@ -147,6 +147,9 @@ _數字分身・全整合版（saba + wsb 合併）_
 
 ### 工作
 - **Kam Tat Surveyors LTD** — Assistant Engineer（2025年8月至今）
+- **活木生活** — 兼職木工導師（2026年5月30日開始）
+  - $80-100/hr，月結支票
+  - 負責木工工作坊、教案研發
 - **Tommy（老細/AP）** — 老細兼導師
 - **Dr Alberto Ortigão（CEng FICE）** — ICE導師
 - **Sum Ho 合眾何生、Wallace Rse** — 同事
