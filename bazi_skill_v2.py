@@ -68,8 +68,8 @@ def get_month_bazi(year, month):
 
 def generate_daily_alert(date, version="dual"):
     year = str(date.year)
-    month = str(date.month)
-    day = str(date.day)
+    month = f"{date.month:02d}"
+    day = f"{date.day:02d}"
     data = load_data()
     
     daily_bazi = get_daily_bazi(date)
