@@ -1,0 +1,58 @@
+{
+  "agents": {
+    "claw_trading_002": {
+      "agent_id": "claw_trading_002",
+      "skills": [
+        "trading",
+        "mnq_analysis"
+      ],
+      "metadata": {
+        "hostname": "container-beijing",
+        "version": "1.0"
+      },
+      "registered_at": "2026-06-02T11:37:31.138Z",
+      "last_heartbeat": "2026-06-02T11:38:33.749Z",
+      "online": true
+    },
+    "claw_005": {
+      "agent_id": "claw_005",
+      "skills": [
+        "general"
+      ],
+      "metadata": {
+        "hostname": "container-beijing",
+        "version": "1.0"
+      },
+      "registered_at": "2026-06-02T11:39:01.435Z",
+      "last_heartbeat": "2026-06-02T11:39:01.436Z",
+      "online": true
+    },
+    "claw_creative_004": {
+      "agent_id": "claw_creative_004",
+      "skills": [
+        "creative"
+      ],
+      "metadata": {
+        "hostname": "container-beijing",
+        "version": "1.0"
+      },
+      "registered_at": "2026-06-02T11:39:01.440Z",
+      "last_heartbeat": "2026-06-02T11:39:01.440Z",
+      "online": true
+    },
+    "claw_006": {
+      "agent_id": "claw_006",
+      "skills": [
+        "general"
+      ],
+      "metadata": {
+        "hostname": "container-beijing",
+        "version": "1.0"
+      },
+      "registered_at": "2026-06-02T11:39:01.444Z",
+      "last_heartbeat": "2026-06-03T15:10:01.475Z",
+      "online": true
+    }
+  },
+  "tasks": []
+}

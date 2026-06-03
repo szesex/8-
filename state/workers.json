@@ -1,0 +1,29 @@
+{
+  "workers": [
+    {
+      "agent_id": "claw_trading_002",
+      "skills": ["trading", "mnq_analysis"],
+      "metadata": { "hostname": "container-beijing", "version": "1.0" }
+    },
+    {
+      "agent_id": "claw_engineering_003",
+      "skills": ["engineering", "slope"],
+      "metadata": { "hostname": "container-beijing", "version": "1.0" }
+    },
+    {
+      "agent_id": "claw_creative_004",
+      "skills": ["creative"],
+      "metadata": { "hostname": "container-beijing", "version": "1.0" }
+    },
+    {
+      "agent_id": "claw_005",
+      "skills": ["general"],
+      "metadata": { "hostname": "container-beijing", "version": "1.0" }
+    },
+    {
+      "agent_id": "claw_006",
+      "skills": ["general"],
+      "metadata": { "hostname": "container-beijing", "version": "1.0" }
+    }
+  ]
+}
