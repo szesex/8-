@@ -1,0 +1,6 @@
+sxtwl
+pendulum
+streamlit
+pandas
+numpy
+# 可選：ccxt 或其他數據源 for 真實歷史數據
