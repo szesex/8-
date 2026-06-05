@@ -15,7 +15,10 @@ def get_hkt_date():
         hkt = pytz.timezone('Asia/Hong_Kong')
         now = datetime.datetime.now(hkt)
     except ImportError:
-        now = datetime.datetime.now()
+        # Fallback: use stdlib timezone (HKT = UTC+8)
+        from datetime import timezone, timedelta
+        hkt_offset = timezone(timedelta(hours=8))
+        now = datetime.datetime.now(hkt_offset)
     return now.date(), now
 
 def load_data():
