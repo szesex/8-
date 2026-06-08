@@ -1,0 +1,76 @@
+[
+  {
+    "job_id": "20260608120001",
+    "company": "AECOM Asia",
+    "title": "Assistant Engineer (Geotechnical)",
+    "url": "https://hk.jobsdb.com/aecom-geotech-2026-001",
+    "salary": "20-25k",
+    "description": "Slope remedial + Minor Works + rock slope assessment. TCP holder preferred. AI/digital skills a plus.",
+    "source": "manual",
+    "added_at": "2026-06-08T12:00:00+08:00",
+    "notified": true,
+    "match_score": 85,
+    "matched_keywords": [
+      "geotechnical",
+      "slope remedial",
+      "Assistant Engineer",
+      "TCP",
+      "Minor Works",
+      "rock slope assessment",
+      "AI"
+    ],
+    "notified_at": "2026-06-09T06:31:13+08:00"
+  },
+  {
+    "job_id": "20260608120002",
+    "company": "Arup",
+    "title": "Geotechnical Engineer (Slope Stability)",
+    "url": "https://hk.jobsdb.com/arup-geotech-2026-002",
+    "salary": "22-28k",
+    "description": "Tender preparation for slope stability projects. AI automation experience welcome.",
+    "source": "manual",
+    "added_at": "2026-06-08T12:00:00+08:00",
+    "notified": true,
+    "match_score": 75,
+    "matched_keywords": [
+      "geotechnical",
+      "slope stability",
+      "tender preparation",
+      "AI"
+    ],
+    "notified_at": "2026-06-09T06:31:13+08:00"
+  },
+  {
+    "job_id": "20260608120003",
+    "company": "Build King",
+    "title": "Site Engineer",
+    "url": "https://hk.jobsdb.com/buildking-site-2026-003",
+    "salary": "18-22k",
+    "description": "General site supervision, no specific geotech focus.",
+    "source": "manual",
+    "added_at": "2026-06-08T12:00:00+08:00",
+    "notified": false,
+    "match_score": 0,
+    "matched_keywords": []
+  },
+  {
+    "job_id": "20260608120004",
+    "company": "WSP",
+    "title": "Assistant Engineer - Slope & Geotech",
+    "url": "https://hk.jobsdb.com/wsp-slope-2026-004",
+    "salary": "19-24k",
+    "description": "Rock slope + AI-based slope monitoring. TCP RSoW. Hybrid work.",
+    "source": "manual",
+    "added_at": "2026-06-08T12:00:00+08:00",
+    "notified": true,
+    "match_score": 70,
+    "matched_keywords": [
+      "Assistant Engineer",
+      "geotechnical",
+      "rock slope",
+      "AI",
+      "TCP"
+    ],
+    "notified_at": "2026-06-09T06:31:13+08:00"
+  }
+]
