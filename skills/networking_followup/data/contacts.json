@@ -1,0 +1,41 @@
+[
+  {
+    "contact_id": "20260605120001",
+    "name": "John Chan",
+    "company": "AECOM",
+    "contact_date": "2026-06-05",
+    "follow_up_date": "2026-06-12",
+    "topic": "slope remedial projects, Junior 級別機會",
+    "next_action": "Send 完整 resume + TCP cert",
+    "channel": "linkedin",
+    "done": false,
+    "follow_up_count": 0,
+    "added_at": "2026-06-05T12:00:00+08:00"
+  },
+  {
+    "contact_id": "20260607090000",
+    "name": "Mary Wong",
+    "company": "Arup",
+    "contact_date": "2026-06-07",
+    "follow_up_date": "2026-06-14",
+    "topic": "Geotechnical 部門 AI automation 應用",
+    "next_action": "問下佢哋 AI tool stack",
+    "channel": "linkedin",
+    "done": false,
+    "follow_up_count": 1,
+    "added_at": "2026-06-07T09:00:00+08:00"
+  },
+  {
+    "contact_id": "20260604140000",
+    "name": "David Lam",
+    "company": "GEO-Research",
+    "contact_date": "2026-05-30",
+    "follow_up_date": "2026-06-09",
+    "topic": "tender preparation workflow",
+    "next_action": "Send portfolio PDF",
+    "channel": "email",
+    "done": false,
+    "follow_up_count": 0,
+    "added_at": "2026-05-30T14:00:00+08:00"
+  }
+]
