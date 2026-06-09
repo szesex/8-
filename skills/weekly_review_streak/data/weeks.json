@@ -1,0 +1,32 @@
+[
+  {
+    "week": "2026-W22",
+    "exam_hours": 3.5,
+    "job_apps": 2,
+    "openclaw_hours": 4,
+    "mma_hours": 1.5,
+    "debt_repaid": 2000,
+    "notes": "病緊，效率低",
+    "logged_at": "2026-06-01T20:00:00+08:00"
+  },
+  {
+    "week": "2026-W23",
+    "exam_hours": 6,
+    "job_apps": 3,
+    "openclaw_hours": 5,
+    "mma_hours": 2,
+    "debt_repaid": 3000,
+    "notes": "病好返，精神返晒",
+    "logged_at": "2026-06-08T20:00:00+08:00"
+  },
+  {
+    "week": "2026-W24",
+    "exam_hours": 5.0,
+    "job_apps": 2,
+    "openclaw_hours": 4.0,
+    "mma_hours": 2.0,
+    "debt_repaid": 2500.0,
+    "notes": "病好返第二日",
+    "logged_at": "2026-06-09T16:09:53+08:00"
+  }
+]
