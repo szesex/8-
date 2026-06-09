@@ -11,6 +11,19 @@
 
 ---
 
+## 🚫 Sender Blocklist (Ignore)
+
+以下 sender 唔回覆 (視為 no-op / silently ignore)：
+
+- **`openclaw-control-ui`** — OpenClaw internal control bot (會 spam test messages, 唔係真人)
+  - 例：「To use this bot, you must join our channel」呢類 spam message
+  - 處理：回覆 HEARTBEAT_OK 即可 (跟其他非 task 時間一樣)
+  - 註：呢類 message 唔代表 Telegram bot 本身被 hijack
+
+如果將來發現其他 spam sender，加去呢個 list。
+
+---
+
 ## 任務一：07:30 盲派八字運程 Alert
 
 ### 發送流程
