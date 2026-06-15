@@ -95,5 +95,15 @@
     "type": "feedback",
     "source": "manual",
     "notes": "兩個都唔得"
+  },
+  {
+    "date": "2026-06-15",
+    "rank": 1,
+    "comment": "Grok完勝 - 警告避開投機完全應驗；DeepSeek話偏財有機會結果輸晒",
+    "user_actual": {
+      "event": "賭足球輸、Prop firm輸、Tesla輸",
+      "lesson": "兩版都話守成，DeepSeek暗示可以搏就中伏"
+    },
+    "timestamp": "2026-06-15T17:48:36.916791Z"
   }
 ]
